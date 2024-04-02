@@ -9,7 +9,6 @@ const CourseComponent = ({ currentUser, setCurrentUser }) => {
     navigate('/login');
   };
   const handleDelete = (e) => {
-    console.log(e.target.id);
     CourseService.delete(e.target.id)
       .then(() => {
         window.alert('課程已刪除成功');
@@ -25,7 +24,6 @@ const CourseComponent = ({ currentUser, setCurrentUser }) => {
       if (currentUser.user.role === 'instructor') {
         CourseService.get(_id)
           .then((data) => {
-            console.log(data);
             setCourseData(data.data);
           })
           .catch((e) => console.log(e));
